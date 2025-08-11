@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace ProgressBarTest
+namespace ProgressBar.NET8
 {
     public partial class FormMain : Form
     {
@@ -20,10 +17,9 @@ namespace ProgressBarTest
         /// <param name="e"></param>
         private void BtnProgressBar_Click(object sender, EventArgs e)
         {
-            using (FormProgressBar progressDialog = new FormProgressBar())
-            {
-                progressDialog.ShowDialog(this);
-            }
+            // Show the progress bar dialog
+            using FormProgressBarDotNET8 progressDialog = new FormProgressBarDotNET8(); // <--- Updated to use FormProgressBarDotNET8
+            progressDialog.ShowDialog(this);
         }
     }
 }

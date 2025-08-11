@@ -7,7 +7,7 @@ namespace ProgressBarTest
 {
     public partial class FormProgressBar : Form
     {
-        private CancellationTokenSource _cts; // 취소 토큰 소스
+        private CancellationTokenSource _cts; // Cancellation token source
 
         /// <summary>
         /// ProgressBar 폼 생성자
@@ -15,9 +15,11 @@ namespace ProgressBarTest
         public FormProgressBar()
         {
             InitializeComponent();
+
+            _cts = new CancellationTokenSource();
             progressBar.Minimum = 0;
             progressBar.Maximum = 100;
-            Text = "작업 상태";
+            Text = "work status";
         }
 
         /// <summary>
@@ -27,7 +29,6 @@ namespace ProgressBarTest
         /// <param name="e"></param>
         private async void ButtonStart_Click(object sender, EventArgs e)
         {
-            _cts = new CancellationTokenSource();
             ControlBox = false; // 닫기 버튼 비활성화
             btnStart.Enabled = false;
             btnCancel.Enabled = true;
